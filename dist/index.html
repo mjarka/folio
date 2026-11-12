@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#14170f"><meta name="description" content="Archiwum wizualne — grafika i eksperymenty."><title>FOLIO — Visual archive</title><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
+<body>
+<div class="computer">
+ <div class="case-top"><span class="brand">FOLIO<span class="brand-bars">▰▰▰</span></span><span>PERSONAL VISUAL SYSTEM / MODEL 026</span><i class="screw"></i></div>
+ <div class="bezel"><div class="screen" id="screen">
+  <header><a class="wordmark" href="#" aria-label="Strona główna">F<span class="star">✳</span></a><span class="header-label">INDEPENDENT GRAPHIC ARCHIVE</span><button class="info-button" id="infoButton" aria-expanded="false" aria-controls="about">[ INFO + ]</button></header>
+  <main>
+   <section class="intro"><div class="eyebrow"><span class="led"></span> SYSTEM ONLINE <span class="muted">/ PORTFOLIO V.01</span></div><h1>Obrazy z innej<br>częstotliwości<span class="cursor">_</span></h1><div class="intro-bottom"><p>Grafika, forma i wizualne eksperymenty.<br>Wybrane prace z mojego małego wszechświata.</p><span class="coordinate">TRANSMISSION 001<br>EXPLORING THE VISUAL UNKNOWN ↙</span></div><div id="about" hidden><p>To miejsce na krótki opis autora. Treści i prezentowane poniżej grafiki są demonstracyjne — zostaną zastąpione Twoimi materiałami.</p></div></section>
+   <section class="works" aria-labelledby="worksTitle"><div class="section-bar"><h2 id="worksTitle">[01] SELECTED WORKS</h2><span id="workCount">08 FILES FOUND</span><div class="view-controls" aria-label="Gęstość galerii"><button data-density="comfortable" aria-pressed="false" aria-label="Większe miniatury">▦</button><button class="active" data-density="compact" aria-pressed="true" aria-label="Mniejsze miniatury">▦▦</button></div></div><div class="demo-note">PREVIEW ARCHIVE / grafiki demonstracyjne</div><div class="gallery" id="gallery"></div></section>
+   <footer><span>END OF TRANSMISSION <span class="blink">■</span></span><a href="#screen" id="backTop">BACK TO TOP ↑</a><span>© <span id="year"></span> FOLIO</span></footer>
+  </main>
+ </div></div>
+ <div class="case-bottom"><div class="case-label">FOLIO <small>GRAPHICS TERMINAL</small></div><div class="vents" aria-hidden="true"></div><div class="power"><span class="led"></span> POWER <span class="power-knob" aria-hidden="true">⏻</span></div></div>
+</div>
+<dialog id="viewer" aria-label="Podgląd grafiki"><div class="viewer-toolbar"><span id="viewerTitle"></span><button id="closeViewer" aria-label="Zamknij podgląd">CLOSE [ESC] ×</button></div><div class="viewer-stage"><button id="previous" aria-label="Poprzednia grafika">←</button><img id="viewerImage" alt=""><button id="next" aria-label="Następna grafika">→</button></div><div class="viewer-bottom"><span id="viewerCategory"></span><span id="viewerCount"></span></div></dialog>
+</body></html>
