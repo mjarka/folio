@@ -3,6 +3,8 @@
 
 #root { height: 100%; }
 
+.cursor { display: inline-block; width: 0.48em; height: 0.78em; margin-left: 0.12em; background: currentColor; vertical-align: -0.03em; font-size: inherit; line-height: 0; overflow: hidden; text-indent: -9999px; box-shadow: 0 0 7px #a5d57a40; animation: blink 1.4s steps(2, end) infinite !important; }
+
 /* Static phosphor grid: thin lines plus a wider, faint halo, with no blur filter. */
 .screen {
   --screen-grid-size: 40px;

@@ -144,7 +144,7 @@ export default function App() {
             <div id="panel-works" role="tabpanel" aria-labelledby="tab-works" hidden={activeTab !== 'works'}>
             <section className="intro">
               <div className="eyebrow"><span className="led" /> SYSTEM ONLINE <span className="muted">/ PORTFOLIO V.01</span></div>
-              <h1>Obrazy z innej<br />częstotliwości<span className="cursor">_</span></h1>
+              <h1>Z cyfrowej materii<br />do rzeczywistych wrażeń.<span className="cursor">_</span></h1>
             </section>
             <section className="works" aria-labelledby="worksTitle">
               <div className="section-bar">
