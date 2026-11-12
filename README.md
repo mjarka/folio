@@ -16,7 +16,7 @@ Domyślny adres: http://127.0.0.1:5173. Serwer nasłuchuje wyłącznie lokalnie.
 ## Edycja
 
 - `src/App.jsx`: układ, opis, galeria, podgląd.
-- `src/assets/prace/<kategoria>/`: każdy niepusty folder jest kategorią. Plik `main` to okładka i pierwszy slajd; pozostałe materiały tworzą karuzelę w kolejności nazw plików. JPG, JPEG, PNG, WebP, AVIF oraz MP4 i WebM są obsługiwane. Bez pliku main pierwszy materiał w kolejności nazw służy jako tymczasowa okładka. Filmy są kompresowane do MP4 i odtwarzane z kontrolkami, bez automatycznego uruchamiania. Oryginały pozostają bez zmian.
+- `src/assets/prace/<kategoria>/`: każdy niepusty folder jest kategorią. Plik `main` to okładka i pierwszy slajd; pozostałe materiały tworzą karuzelę w kolejności nazw plików. JPG, JPEG, PNG, WebP, AVIF oraz MP4 i WebM są obsługiwane. Bez pliku main pierwszy materiał w kolejności nazw służy jako tymczasowa okładka. Filmy są kompresowane do MP4. W galerii mają automatyczne, wyciszone podglądy w pętli; pełny widok ma kontrolki i startuje po kliknięciu odtwarzania. Oryginały pozostają bez zmian.
 - `npm.cmd run assets:works`: przygotowuje WebP i katalog kategorii po dodaniu plików do działającej sesji. Wykonuje się też automatycznie przed `dev` i `build`. Oryginały pozostają bez zmian. `src/works.js` łączy katalog z adresami grafik Vite.
 - `npm.cmd run assets:works -- --force`: ponownie generuje wszystkie podglądy po zmianie wymiarów materiałów, niezależnie od cache. W folderze `animacja` każdy plik jest osobnym kafelkiem, otwierającym swój odtwarzacz bez zbędnych strzałek i miniatur.
 - `src/style.css`: terminal i efekt kineskopu.
@@ -29,7 +29,7 @@ Podgląd kategorii obsługuje miniatury, strzałki, Escape i gest poziomy. Anima
 
 `src/RotatingArtwork.jsx` zmienia okładki losowo co 3,5–6 sekund. Pierwsza zmiana następuje po około 2–4 sekundach. Plik main jest pierwszym widokiem; kolejne materiały są wybierane bez bezpośrednich powtórzeń. Obraz dekodowany jest przed przejściem (650 ms), a proporcje kafelka pozostają stałe. Kliknięcie otwiera karuzelę od aktualnie prezentowanej pracy.
 
-Rotacja zatrzymuje się przy fokusie, otwarciu karuzeli, ukryciu karty, wyjściu kafelka poza widoczny obszar oraz po użyciu przycisku AUTO. Najechanie jej nie zatrzymuje. `prefers-reduced-motion` wyłącza przenikanie, ale zdjęcia nadal się zmieniają. Filmy mają nieruchome podglądy, bez automatycznego odtwarzania.
+Rotacja zatrzymuje się przy fokusie, otwarciu karuzeli, ukryciu karty, wyjściu kafelka poza widoczny obszar oraz po użyciu przycisku AUTO. Najechanie jej nie zatrzymuje. `prefers-reduced-motion` wyłącza przenikanie, ale zdjęcia nadal się zmieniają. Oba podglądy filmów grają bez dźwięku w pętli, gdy są widoczne; zatrzymują się poza ekranem, w ukrytej karcie, zakładce O mnie, przy otwartej karuzeli oraz po wyłączeniu AUTO.
 
 ## Kompresja plików
 

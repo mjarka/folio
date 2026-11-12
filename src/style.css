@@ -4,7 +4,7 @@
 #root { height: 100%; }
 
 .screen header .header-label { margin-left: auto; }
-.portfolio-tabs { display: flex; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.portfolio-tabs { position: sticky; top: 0; z-index: 6; display: flex; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); background: var(--bg); box-shadow: 0 10px 16px #11170f80; }
 .portfolio-tabs button { min-width: 110px; padding: 11px 20px; background: transparent; border: 1px solid #596a45; border-radius: 2px; color: var(--green); font-size: 12px; }
 .portfolio-tabs button:hover { background: #b3d18b12; }
 .portfolio-tabs button[aria-selected="true"] { color: #11170f; background: var(--green); border-color: var(--green); box-shadow: 0 0 12px #b3d18b18; }

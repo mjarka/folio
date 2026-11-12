@@ -23,6 +23,7 @@ function prepareMedia(slide) {
 
 export default function RotatingArtwork({ work, index, onOpen, rotating }) {
   const button = useRef(null);
+  const previewVideo = useRef(null);
   const [current, setCurrent] = useState(0);
   const [videoRatio, setVideoRatio] = useState(null);
   const [previous, setPrevious] = useState(null);
@@ -78,12 +79,21 @@ export default function RotatingArtwork({ work, index, onOpen, rotating }) {
     return () => clearTimeout(timer);
   }, [previous, current]);
 
+  useEffect(() => {
+    const video = previewVideo.current;
+    if (!video) return;
+    if (rotating && visible && pageVisible) {
+      video.play().catch(() => { /* Keep a still preview if autoplay is blocked. */ });
+    } else video.pause();
+    return () => video.pause();
+  }, [current, rotating, visible, pageVisible]);
+
   function layer(slideIndex, outgoing = false) {
     const slide = work.slides[slideIndex];
     const src = slideIndex === 0 ? work.src : slide.src;
     return <span key={slideIndex} className={`cover-layer ${outgoing ? 'cover-outgoing' : previous !== null ? 'cover-incoming' : ''}`} aria-hidden={outgoing || undefined}>
       {work.monochrome ? <MonochromeArtwork src={src} title={outgoing ? '' : `${work.title} — ${slide.title}`} width={slide.width} height={slide.height} />
-        : slide.type === 'video' ? <video src={`${src}#t=0.1`} muted playsInline preload="metadata" aria-label={outgoing ? undefined : slide.title} onLoadedMetadata={event => { const video = event.currentTarget; if (!outgoing && work.slides.length === 1 && video.videoWidth && video.videoHeight) setVideoRatio(`${video.videoWidth} / ${video.videoHeight}`); }} />
+        : slide.type === 'video' ? <video ref={outgoing ? undefined : previewVideo} src={src} muted loop playsInline preload="metadata" aria-label={outgoing ? undefined : slide.title} onLoadedMetadata={event => { const video = event.currentTarget; if (!outgoing && work.slides.length === 1 && video.videoWidth && video.videoHeight) setVideoRatio(`${video.videoWidth} / ${video.videoHeight}`); }} />
         : <img src={src} alt={outgoing ? '' : `${work.title} — ${slide.title}`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />}
     </span>;
   }
