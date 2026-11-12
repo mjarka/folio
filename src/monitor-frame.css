@@ -1,11 +1,12 @@
 /* Original 4096 × 3812 image, split at x=456/3730 and y=434/3235.
-   All corner dimensions share one scale, so only edge length stretches. */
+   The bottom row has extra height for future controls and stickers. */
 .computer-image-frame {
   --frame-unit: clamp(0.085px, 0.013vw, 0.23px);
   --case-left: calc(456 * var(--frame-unit));
   --case-right: calc(366 * var(--frame-unit));
   --case-top: calc(434 * var(--frame-unit));
-  --case-bottom: calc(577 * var(--frame-unit));
+  --case-bottom-base: calc(577 * var(--frame-unit));
+  --case-bottom: calc(var(--case-bottom-base) + clamp(32px, 6vw, 90px));
   --reflection-opacity: 0.22;
   padding: 0;
   border: 0;
@@ -115,19 +116,39 @@
 .computer-image-frame .monitor-logo {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--case-bottom) * 0.17);
+  bottom: calc(var(--case-bottom) * 0.20);
   transform: translateX(-50%);
-  height: clamp(15px, calc(var(--case-bottom) * 0.27), 32px);
+  height: clamp(15px, calc(var(--case-bottom-base) * 0.27), 32px);
   width: auto;
   max-width: 28%;
   object-fit: contain;
   z-index: 4;
   user-select: none;
 }
+.monitor-power-image {
+  position: absolute;
+  left: calc(var(--case-left) * 0.65);
+  bottom: calc(var(--case-bottom) * 0.13);
+  width: auto;
+  height: min(calc(var(--case-bottom) * 0.26), 55.3px);
+  aspect-ratio: 158 / 77;
+  z-index: 4;
+  user-select: none;
+}
+.monitor-stickers { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.monitor-sticker { position: absolute; display: block; width: auto; user-select: none; }
+.sticker-car { left: 22%; bottom: 1px; height: min(calc(var(--case-bottom) * 0.44), 92px); transform: rotate(-8deg); }
+.sticker-goku { left: 63%; bottom: -5px; height: min(calc(var(--case-bottom) * 0.70), 145px); transform: rotate(7deg); }
+.sticker-tape { left: 76%; bottom: 4px; height: min(calc(var(--case-bottom) * 0.47), 100px); transform: rotate(-6deg); }
 .computer-image-frame .vents { opacity: 0.38; }
 .computer-image-frame .power-knob { margin-left: 5px; background: linear-gradient(#c3b394, #968669); border-color: #8c7c61; box-shadow: 1px 2px 3px #4b3b2c99, inset 0 1px 1px #e4d7bd; }
 .computer-image-frame .power-knob[aria-pressed="true"] { color: #32482a; text-shadow: 0 0 5px #bce68c; }
 @media(max-width:540px) {
+  .computer-image-frame { --case-bottom: calc(var(--case-bottom-base) + 64px); }
+  .contact-note { --note-offset-bottom: 30px; }
+  .sticker-car { left: 24%; bottom: 2px; height: 43px; transform: rotate(-9deg); }
+  .sticker-goku { left: 32%; bottom: 29px; height: 72px; transform: rotate(7deg); }
+  .sticker-tape { left: 7%; bottom: 44px; height: 46px; transform: rotate(-8deg); }
   .computer-image-frame > .case-top > span:nth-child(2) { font-size: 5px; letter-spacing: 0.5px; }
   .computer-image-frame .brand-bars { font-size: 9px; padding-left: 5px; }
   .computer-image-frame .case-label { font-size: 9px; }

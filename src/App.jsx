@@ -7,6 +7,10 @@ import logo from './assets/optimized/Logo.webp';
 import note from './assets/optimized/note.webp';
 import noteShadow from './assets/optimized/noteshadow.webp';
 import portrait from './assets/optimized/portrait.webp';
+import monitorButton from './assets/optimized/button.webp';
+import stickerCar from './assets/optimized/sticker-1.webp';
+import stickerGoku from './assets/optimized/sticker-2.webp';
+import stickerTape from './assets/optimized/sticker-3.webp';
 import MonochromeArtwork from './MonochromeArtwork.jsx';
 import Artwork from './RotatingArtwork.jsx';
 
@@ -176,6 +180,12 @@ export default function App() {
           </main>
         </div></CrtScreen></div>
         <img className="monitor-logo" src={logo} alt="Jarka" width="492" height="142" draggable="false" />
+        <img className="monitor-power-image" src={monitorButton} alt="Przycisk zasilania z zieloną diodą" width="158" height="77" draggable="false" />
+        <div className="monitor-stickers" aria-hidden="true">
+          <img className="monitor-sticker sticker-car" src={stickerCar} alt="" width="456" height="268" draggable="false" />
+          <img className="monitor-sticker sticker-goku" src={stickerGoku} alt="" width="319" height="482" draggable="false" />
+          <img className="monitor-sticker sticker-tape" src={stickerTape} alt="" width="430" height="342" draggable="false" />
+        </div>
         <img className="contact-note contact-note-shadow" src={noteShadow} alt="" width="670" height="697" draggable="false" />
         <aside className="contact-note contact-note-front" aria-label="Kontakt">
           <img className="contact-note-paper" src={note} alt="" width="670" height="697" draggable="false" />

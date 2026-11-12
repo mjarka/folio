@@ -38,6 +38,15 @@ await sharp(path.join(assets, 'portrait.jpg'))
   .rotate()
   .webp({ quality: 90, smartSubsample: true, effort: 6 })
   .toFile(path.join(output, 'portrait.webp'));
+await sharp(path.join(assets, 'Button.png'))
+  .webp({ quality: 90, alphaQuality: 100, effort: 6 })
+  .toFile(path.join(output, 'button.webp'));
+for (const index of [1, 2, 3]) {
+  await sharp(path.join(assets, `naklejka (${index}).png`))
+    .resize({ width: 400, withoutEnlargement: true })
+    .webp({ quality: 88, alphaQuality: 100, effort: 6 })
+    .toFile(path.join(output, `sticker-${index}.webp`));
+}
 for (const name of ['note', 'noteshadow']) {
   await sharp(path.join(assets, `${name}.png`))
     .resize({ width: 480, withoutEnlargement: true })

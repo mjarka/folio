@@ -3,6 +3,25 @@
 
 #root { height: 100%; }
 
+/* Static phosphor grid: thin lines plus a wider, faint halo, with no blur filter. */
+.screen {
+  --screen-grid-size: 40px;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(90deg, #a8dc7817 1px, transparent 1px),
+    linear-gradient(0deg, #a8dc7817 1px, transparent 1px),
+    linear-gradient(90deg, transparent, #a8dc7809 1px, #a8dc7809 3px, transparent 5px),
+    linear-gradient(0deg, transparent, #a8dc7809 1px, #a8dc7809 3px, transparent 5px),
+    radial-gradient(ellipse at 50% 0, #202a1b80, transparent 65%);
+  background-size:
+    var(--screen-grid-size) var(--screen-grid-size),
+    var(--screen-grid-size) var(--screen-grid-size),
+    var(--screen-grid-size) var(--screen-grid-size),
+    var(--screen-grid-size) var(--screen-grid-size),
+    100% 100%;
+  background-position: 0 0, 0 0, -2px 2px, -2px 2px, 0 0;
+}
+
 .screen header .header-label { margin-left: auto; }
 .portfolio-tabs { position: sticky; top: 0; z-index: 6; display: flex; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); background: var(--bg); box-shadow: 0 10px 16px #11170f80; }
 .portfolio-tabs button { min-width: 110px; padding: 11px 20px; background: transparent; border: 1px solid #596a45; border-radius: 2px; color: var(--green); font-size: 12px; }
