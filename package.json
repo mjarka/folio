@@ -11,6 +11,7 @@
     "test": "node --test src/crtMath.test.js",
     "assets:optimize": "node scripts/optimize-monitor.mjs",
     "assets:works": "node scripts/prepare-works.mjs",
+    "assets:favicon": "node scripts/prepare-favicon.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
