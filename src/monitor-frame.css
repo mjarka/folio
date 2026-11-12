@@ -1,0 +1,138 @@
+/* Original 4096 × 3812 image, split at x=456/3730 and y=434/3235.
+   All corner dimensions share one scale, so only edge length stretches. */
+.computer-image-frame {
+  --frame-unit: clamp(0.085px, 0.013vw, 0.23px);
+  --case-left: calc(456 * var(--frame-unit));
+  --case-right: calc(366 * var(--frame-unit));
+  --case-top: calc(434 * var(--frame-unit));
+  --case-bottom: calc(577 * var(--frame-unit));
+  --reflection-opacity: 0.22;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: calc(85 * var(--frame-unit));
+  box-shadow: 0 18px 55px #0008;
+  isolation: isolate;
+}
+.computer-image-frame::after { display: none; }
+.monitor-frame, .monitor-reflections {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: var(--case-left) minmax(0, 1fr) var(--case-right);
+  grid-template-rows: var(--case-top) minmax(0, 1fr) var(--case-bottom);
+  pointer-events: none;
+  user-select: none;
+}
+.monitor-frame { z-index: 3; }
+.monitor-reflections { z-index: 2; mix-blend-mode: screen; opacity: var(--reflection-opacity); transform: translateZ(0); will-change: opacity; }
+.frame-piece { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: fill; }
+.frame-top-left { grid-area: 1 / 1; }
+.frame-top { grid-area: 1 / 2; }
+.frame-top-right { grid-area: 1 / 3; }
+.frame-left { grid-area: 2 / 1; }
+.frame-right { grid-area: 2 / 3; }
+.frame-center { grid-area: 2 / 2; }
+.frame-bottom-left { grid-area: 3 / 1; }
+.frame-bottom { grid-area: 3 / 2; }
+.frame-bottom-right { grid-area: 3 / 3; }
+
+/* Place the glass behind the transparent inner edge of the supplied PNGs. */
+.computer-image-frame > .bezel {
+  position: absolute;
+  top: calc(var(--case-top) * 0.48);
+  right: calc(var(--case-right) * 0.38);
+  bottom: calc(var(--case-bottom) * 0.33);
+  left: calc(var(--case-left) * 0.44);
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  background: #080d07;
+  box-shadow: none;
+  z-index: 1;
+}
+.computer-image-frame .screen {
+  /* Keep the native scrollbar inside the narrowest part of the curved opening.
+     The glass and its distortion still cover the full area behind the frame. */
+  --scroll-safe-top: calc(var(--case-top) * 0.22 + 8px);
+  --scroll-safe-bottom: calc(var(--case-bottom) * 0.35 + 8px);
+  --scroll-safe-right: calc(var(--case-right) * 0.35 + 12px);
+  width: calc(100% - var(--scroll-safe-right));
+  height: calc(100% - var(--scroll-safe-top) - var(--scroll-safe-bottom));
+  margin-top: var(--scroll-safe-top);
+  border-radius: 0;
+  padding-inline: clamp(22px, 3.2vw, 48px);
+  scrollbar-gutter: stable;
+}
+.computer-image-frame .crt-render { display: flow-root; }
+.computer-image-frame .crt-viewport { border-radius: 0; }
+.computer-image-frame > .case-top {
+  position: absolute;
+  top: calc(var(--case-top) * 0.10);
+  left: calc(var(--case-left) * 0.35);
+  right: calc(var(--case-right) * 0.35);
+  height: calc(var(--case-top) * 0.42);
+  z-index: 4;
+  color: #4b432f;
+  background: none;
+  letter-spacing: 1.5px;
+  pointer-events: none;
+}
+.computer-image-frame .brand { font-size: clamp(12px, 1.3vw, 20px); text-shadow: 0 1px #fff5; }
+.computer-image-frame .brand-bars { color: #665c3f; }
+.computer-image-frame .screw { display: none; }
+.computer-image-frame > .case-bottom {
+  position: absolute;
+  bottom: calc(var(--case-bottom) * 0.15);
+  left: calc(var(--case-left) * 0.70);
+  right: calc(var(--case-right) * 0.70);
+  height: calc(var(--case-bottom) * 0.38);
+  z-index: 4;
+  color: #4b432f;
+  background: none;
+}
+.computer-image-frame .case-label { border-color: #87785a; font-size: clamp(10px, 1vw, 15px); }
+.computer-image-frame .case-bottom .power { margin-left: auto; }
+.contact-note {
+  --note-offset-right: clamp(4px, 0.9vw, 12px);
+  --note-offset-bottom: clamp(12px, 1.8vw, 24px);
+  position: absolute;
+  right: calc(-1 * var(--note-offset-right));
+  bottom: calc(-1 * var(--note-offset-bottom));
+  width: clamp(190px, 17vw, 240px);
+  aspect-ratio: 670 / 697;
+  z-index: 5;
+  pointer-events: none;
+}
+.contact-note > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; user-select: none; }
+.contact-note-shadow { display: block; height: auto; mix-blend-mode: multiply; opacity: 1; user-select: none; clip-path: inset(0 var(--note-offset-right) var(--note-offset-bottom) 0); }
+.contact-note-front { z-index: 6; }
+.contact-note-copy { position: absolute; top: 20%; left: 12%; right: 18%; bottom: 24%; color: #4e4229; transform: rotate(-4deg); font: 400 clamp(14px, 1.15vw, 17px)/1.5 'Shadows Into Light', cursive; }
+.contact-note-copy h2 { font: inherit; font-size: clamp(24px, 2vw, 30px); margin: 0 0 8px; letter-spacing: 0; text-shadow: none; }
+.contact-note-copy a { display: block; width: fit-content; margin-top: 5px; white-space: nowrap; pointer-events: auto; }
+.contact-note-copy a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.contact-note-copy a:focus-visible { outline-color: #4e4229; outline-offset: 3px; }
+.computer-image-frame .monitor-logo {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--case-bottom) * 0.17);
+  transform: translateX(-50%);
+  height: clamp(15px, calc(var(--case-bottom) * 0.27), 32px);
+  width: auto;
+  max-width: 28%;
+  object-fit: contain;
+  z-index: 4;
+  user-select: none;
+}
+.computer-image-frame .vents { opacity: 0.38; }
+.computer-image-frame .power-knob { margin-left: 5px; background: linear-gradient(#c3b394, #968669); border-color: #8c7c61; box-shadow: 1px 2px 3px #4b3b2c99, inset 0 1px 1px #e4d7bd; }
+.computer-image-frame .power-knob[aria-pressed="true"] { color: #32482a; text-shadow: 0 0 5px #bce68c; }
+@media(max-width:540px) {
+  .computer-image-frame > .case-top > span:nth-child(2) { font-size: 5px; letter-spacing: 0.5px; }
+  .computer-image-frame .brand-bars { font-size: 9px; padding-left: 5px; }
+  .computer-image-frame .case-label { font-size: 9px; }
+  .computer-image-frame .vents { width: 40px; height: 12px; }
+  .computer-image-frame .power-knob { height: 21px; width: 23px; }
+  .computer-image-frame .power { font-size: 7px; gap: 5px; }
+  .computer-image-frame .screen { padding-inline: 22px; }
+}

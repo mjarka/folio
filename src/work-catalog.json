@@ -1,0 +1,428 @@
+[
+  {
+    "id": "angrybirds",
+    "title": "angrybirds",
+    "monochrome": false,
+    "cover": {
+      "key": "angrybirds/cover.webp",
+      "width": 900,
+      "height": 600,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "angrybirds/7c45d66ff7109159.webp",
+        "title": "angrybirds",
+        "filename": "pos_11.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      },
+      {
+        "key": "angrybirds/d70fa49424fc1554.webp",
+        "title": "pos 12",
+        "filename": "pos_12.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      },
+      {
+        "key": "angrybirds/b43d4b5dbcc08f64.webp",
+        "title": "pos 13",
+        "filename": "pos_13.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      },
+      {
+        "key": "angrybirds/761ab0928ba24720.webp",
+        "title": "pos 14",
+        "filename": "pos_14.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      },
+      {
+        "key": "angrybirds/2f049a1310c81c61.webp",
+        "title": "pos 20",
+        "filename": "pos_20.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      },
+      {
+        "key": "angrybirds/094f108b6e382cc2.webp",
+        "title": "pos 21",
+        "filename": "pos_21.jpg",
+        "width": 1200,
+        "height": 800,
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "id": "animacja-a281ad6678adc01c",
+    "title": "Animacja intro dla yakuza",
+    "category": "animacja",
+    "monochrome": false,
+    "cover": {
+      "key": "animacja/a281ad6678adc01c.mp4",
+      "width": 1280,
+      "height": 720,
+      "type": "video"
+    },
+    "slides": [
+      {
+        "key": "animacja/a281ad6678adc01c.mp4",
+        "title": "Animacja intro dla yakuza",
+        "filename": "Animacja_intro_dla_yakuza.mp4",
+        "width": 1280,
+        "height": 720,
+        "type": "video"
+      }
+    ]
+  },
+  {
+    "id": "animacja-333bbd28be0c9f39",
+    "title": "Tutorial",
+    "category": "animacja",
+    "monochrome": false,
+    "cover": {
+      "key": "animacja/333bbd28be0c9f39.mp4",
+      "width": 720,
+      "height": 1280,
+      "type": "video"
+    },
+    "slides": [
+      {
+        "key": "animacja/333bbd28be0c9f39.mp4",
+        "title": "Tutorial",
+        "filename": "Tutorial.mp4",
+        "width": 720,
+        "height": 1280,
+        "type": "video"
+      }
+    ]
+  },
+  {
+    "id": "druk",
+    "title": "druk",
+    "monochrome": false,
+    "cover": {
+      "key": "druk/cover.webp",
+      "width": 848,
+      "height": 1200,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "druk/00892da65d40bd15.webp",
+        "title": "druk",
+        "filename": "KatalogOkladkav2.jpg",
+        "width": 1697,
+        "height": 2400,
+        "type": "image"
+      },
+      {
+        "key": "druk/2c4209fa7feff5c5.webp",
+        "title": "pos 1",
+        "filename": "pos_1.jpg",
+        "width": 1200,
+        "height": 848,
+        "type": "image"
+      },
+      {
+        "key": "druk/0e7f3a4abb2de593.webp",
+        "title": "pos 2",
+        "filename": "pos_2.jpg",
+        "width": 1200,
+        "height": 848,
+        "type": "image"
+      },
+      {
+        "key": "druk/38f48d8b8961d955.webp",
+        "title": "pos 3",
+        "filename": "pos_3.jpg",
+        "width": 940,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "druk/18297f239cf6da65.webp",
+        "title": "pos 8",
+        "filename": "pos_8.jpg",
+        "width": 834,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "druk/597a556e6598db22.webp",
+        "title": "pos 9",
+        "filename": "pos_9.jpg",
+        "width": 732,
+        "height": 1200,
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "id": "KeyVisual",
+    "title": "KeyVisual",
+    "monochrome": false,
+    "cover": {
+      "key": "KeyVisual/cover.webp",
+      "width": 900,
+      "height": 506,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "KeyVisual/42f9875e94f083cd.webp",
+        "title": "KeyVisual",
+        "filename": "#20022 HC-Netto-Animals-Farmbirds-KV_05aa.jpg",
+        "width": 1772,
+        "height": 997,
+        "type": "image"
+      },
+      {
+        "key": "KeyVisual/376335d13619ace2.webp",
+        "title": "Artboard 1 copy 10",
+        "filename": "Artboard 1 copy 10.png",
+        "width": 1920,
+        "height": 1080,
+        "type": "image"
+      },
+      {
+        "key": "KeyVisual/5ba22416731312c6.webp",
+        "title": "kv 22",
+        "filename": "kv_22.jpg",
+        "width": 1200,
+        "height": 675,
+        "type": "image"
+      },
+      {
+        "key": "KeyVisual/f6ddd37e49f190cb.webp",
+        "title": "MicrosoftTeams image (10)",
+        "filename": "MicrosoftTeams-image (10).png",
+        "width": 1920,
+        "height": 1080,
+        "type": "image"
+      },
+      {
+        "key": "KeyVisual/264dad0d7445b256.webp",
+        "title": "Orlen bajkotywka kv",
+        "filename": "Orlen_bajkotywka_kv.png",
+        "width": 1920,
+        "height": 1080,
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "id": "logotypes",
+    "title": "logotypes",
+    "monochrome": true,
+    "cover": {
+      "key": "logotypes/cover.webp",
+      "width": 900,
+      "height": 900,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "logotypes/21811360e2f0e364.webp",
+        "title": "logotypes",
+        "filename": "l_1.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      },
+      {
+        "key": "logotypes/266036d24c7c2900.webp",
+        "title": "l 2",
+        "filename": "l_2.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      },
+      {
+        "key": "logotypes/ad9ded82b33d5740.webp",
+        "title": "l 3",
+        "filename": "l_3.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      },
+      {
+        "key": "logotypes/34bd1cbb2b8308c0.webp",
+        "title": "l 4",
+        "filename": "l_4.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      },
+      {
+        "key": "logotypes/45f7b92903542855.webp",
+        "title": "l 5",
+        "filename": "l_5.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      },
+      {
+        "key": "logotypes/2e304014c64991fe.webp",
+        "title": "l 6",
+        "filename": "l_6.png",
+        "width": 1000,
+        "height": 1000,
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "id": "plakaty",
+    "title": "plakaty",
+    "monochrome": false,
+    "cover": {
+      "key": "plakaty/cover.webp",
+      "width": 813,
+      "height": 1200,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "plakaty/df0efd48d9694162.webp",
+        "title": "plakaty",
+        "filename": "main.jpg",
+        "width": 1627,
+        "height": 2400,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/8d74d1da5220a72e.webp",
+        "title": "dziewczyna z tatuazem prl",
+        "filename": "dziewczyna_z_tatuazem_prl.jpg",
+        "width": 1679,
+        "height": 2400,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/807969586929a285.webp",
+        "title": "Fight club",
+        "filename": "Fight_club.jpg",
+        "width": 800,
+        "height": 1143,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/a25d62e1d035cc44.webp",
+        "title": "fightClub prl",
+        "filename": "fightClub_prl.jpg",
+        "width": 1679,
+        "height": 2400,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/bf04cb1822f3ae5e.webp",
+        "title": "Girl gone",
+        "filename": "Girl_gone.jpg",
+        "width": 800,
+        "height": 1143,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/f9a9210ab203c6ce.webp",
+        "title": "poster 5",
+        "filename": "poster_5.jpg",
+        "width": 840,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/487c4407e99d239d.webp",
+        "title": "seven",
+        "filename": "seven.jpg",
+        "width": 800,
+        "height": 1143,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/82078cab3f85decb.webp",
+        "title": "test1",
+        "filename": "test1.jpg",
+        "width": 800,
+        "height": 1180,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/32e3d24853f48949.webp",
+        "title": "the game",
+        "filename": "the_game.jpg",
+        "width": 800,
+        "height": 1143,
+        "type": "image"
+      },
+      {
+        "key": "plakaty/87e5a2ae66c99cb7.webp",
+        "title": "the social network",
+        "filename": "the_social_network.jpg",
+        "width": 800,
+        "height": 1143,
+        "type": "image"
+      }
+    ]
+  },
+  {
+    "id": "wiko",
+    "title": "wiko",
+    "monochrome": false,
+    "cover": {
+      "key": "wiko/cover.webp",
+      "width": 900,
+      "height": 900,
+      "type": "image"
+    },
+    "slides": [
+      {
+        "key": "wiko/df0efd48d9694162.webp",
+        "title": "wiko",
+        "filename": "main.jpg",
+        "width": 1200,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "wiko/49cd10df3bfd60be.webp",
+        "title": "wiko cant wait 7",
+        "filename": "wiko_cant_wait_7.jpg",
+        "width": 1200,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "wiko/e9fff436e7e79155.webp",
+        "title": "wiko fever bike",
+        "filename": "wiko_fever_bike.jpg",
+        "width": 1200,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "wiko/8c51bd79960c5e20.webp",
+        "title": "wiko headphones highway",
+        "filename": "wiko_headphones_highway.jpg",
+        "width": 1200,
+        "height": 1200,
+        "type": "image"
+      },
+      {
+        "key": "wiko/abed39f7d6e700e9.webp",
+        "title": "Wiko jerry produktowy v2",
+        "filename": "Wiko_jerry_produktowy_v2.jpg",
+        "width": 800,
+        "height": 800,
+        "type": "image"
+      }
+    ]
+  }
+]
