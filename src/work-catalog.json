@@ -67,6 +67,7 @@
     "monochrome": false,
     "cover": {
       "key": "animacja/a281ad6678adc01c.mp4",
+      "posterKey": "animacja/a281ad6678adc01c.poster.webp",
       "width": 1280,
       "height": 720,
       "type": "video"
@@ -74,6 +75,7 @@
     "slides": [
       {
         "key": "animacja/a281ad6678adc01c.mp4",
+        "posterKey": "animacja/a281ad6678adc01c.poster.webp",
         "title": "Animacja intro dla yakuza",
         "filename": "Animacja_intro_dla_yakuza.mp4",
         "width": 1280,
@@ -89,6 +91,7 @@
     "monochrome": false,
     "cover": {
       "key": "animacja/333bbd28be0c9f39.mp4",
+      "posterKey": "animacja/333bbd28be0c9f39.poster.webp",
       "width": 720,
       "height": 1280,
       "type": "video"
@@ -96,6 +99,7 @@
     "slides": [
       {
         "key": "animacja/333bbd28be0c9f39.mp4",
+        "posterKey": "animacja/333bbd28be0c9f39.poster.webp",
         "title": "Tutorial",
         "filename": "Tutorial.mp4",
         "width": 720,

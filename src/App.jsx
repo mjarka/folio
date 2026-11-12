@@ -83,6 +83,7 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [rotateCovers, setRotateCovers] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [desktopVideo, setDesktopVideo] = useState(() => matchMedia('(min-width: 901px) and (hover: hover) and (pointer: fine)').matches);
   const screen = useRef(null);
   const lastWorkButton = useRef(null);
 
@@ -91,6 +92,13 @@ export default function App() {
     const update = () => setReducedMotion(preference.matches);
     preference.addEventListener('change', update);
     return () => preference.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    const desktop = matchMedia('(min-width: 901px) and (hover: hover) and (pointer: fine)');
+    const update = () => setDesktopVideo(desktop.matches);
+    desktop.addEventListener('change', update);
+    return () => desktop.removeEventListener('change', update);
   }, []);
 
   function backToTop(event) {
@@ -144,7 +152,7 @@ export default function App() {
                 </div>
               </div>
               <div className={`gallery category-gallery ${density === 'comfortable' ? 'comfortable' : ''}`}>
-                {works.map((work, index) => <Artwork key={work.id} work={work} index={index} onOpen={openWork} rotating={rotateCovers && selected === null && activeTab === 'works'} />)}
+                {works.map((work, index) => <Artwork key={work.id} work={work} index={index} onOpen={openWork} rotating={rotateCovers && selected === null && activeTab === 'works'} autoplayVideos={desktopVideo} />)}
               </div>
             </section>
             </div>

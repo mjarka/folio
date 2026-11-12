@@ -21,12 +21,11 @@ function prepareMedia(slide) {
   return { ready, cancel() { clearTimeout(timeout); video.onloadeddata = null; video.onerror = null; video.removeAttribute('src'); video.load(); } };
 }
 
-export default function RotatingArtwork({ work, index, onOpen, rotating }) {
+export default function RotatingArtwork({ work, index, onOpen, rotating, autoplayVideos }) {
   const button = useRef(null);
   const previewVideo = useRef(null);
   const [current, setCurrent] = useState(0);
   const [videoRatio, setVideoRatio] = useState(null);
-  const [previous, setPrevious] = useState(null);
   const [visible, setVisible] = useState(false);
   const [retry, setRetry] = useState(0);
   const hasRotated = useRef(false);
@@ -64,7 +63,7 @@ export default function RotatingArtwork({ work, index, onOpen, rotating }) {
       try {
         media = prepareMedia(work.slides[next]);
         await media.ready;
-        if (!cancelled) { hasRotated.current = true; setPrevious(current); setCurrent(next); }
+        if (!cancelled) { hasRotated.current = true; setCurrent(next); }
       } catch {
         // A failed request must not permanently stop this card's rotation.
         if (!cancelled) setRetry(value => value + 1);
@@ -74,26 +73,21 @@ export default function RotatingArtwork({ work, index, onOpen, rotating }) {
   }, [current, rotating, visible, focused, pageVisible, work, index, retry]);
 
   useEffect(() => {
-    if (previous === null) return;
-    const timer = setTimeout(() => setPrevious(null), 700);
-    return () => clearTimeout(timer);
-  }, [previous, current]);
-
-  useEffect(() => {
     const video = previewVideo.current;
     if (!video) return;
-    if (rotating && visible && pageVisible) {
+    if (autoplayVideos && rotating && visible && pageVisible) {
       video.play().catch(() => { /* Keep a still preview if autoplay is blocked. */ });
     } else video.pause();
     return () => video.pause();
-  }, [current, rotating, visible, pageVisible]);
+  }, [current, rotating, visible, pageVisible, autoplayVideos]);
 
   function layer(slideIndex, outgoing = false) {
     const slide = work.slides[slideIndex];
     const src = slideIndex === 0 ? work.src : slide.src;
-    return <span key={slideIndex} className={`cover-layer ${outgoing ? 'cover-outgoing' : previous !== null ? 'cover-incoming' : ''}`} aria-hidden={outgoing || undefined}>
+    return <span key={slideIndex} className="cover-layer" aria-hidden={outgoing || undefined}>
       {work.monochrome ? <MonochromeArtwork src={src} title={outgoing ? '' : `${work.title} — ${slide.title}`} width={slide.width} height={slide.height} />
-        : slide.type === 'video' ? <video ref={outgoing ? undefined : previewVideo} src={src} muted loop playsInline preload="metadata" aria-label={outgoing ? undefined : slide.title} onLoadedMetadata={event => { const video = event.currentTarget; if (!outgoing && work.slides.length === 1 && video.videoWidth && video.videoHeight) setVideoRatio(`${video.videoWidth} / ${video.videoHeight}`); }} />
+        : slide.type === 'video' && !autoplayVideos ? <img src={slide.posterSrc} alt={outgoing ? '' : slide.title} loading="lazy" decoding="async" />
+        : slide.type === 'video' ? <video ref={outgoing ? undefined : previewVideo} src={src} poster={slide.posterSrc} muted loop playsInline preload="metadata" aria-label={outgoing ? undefined : slide.title} onLoadedMetadata={event => { const video = event.currentTarget; if (!outgoing && work.slides.length === 1 && video.videoWidth && video.videoHeight) setVideoRatio(`${video.videoWidth} / ${video.videoHeight}`); }} />
         : <img src={src} alt={outgoing ? '' : `${work.title} — ${slide.title}`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />}
     </span>;
   }
@@ -102,7 +96,6 @@ export default function RotatingArtwork({ work, index, onOpen, rotating }) {
     onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} aria-label={`Otwórz kategorię: ${work.title}`}>
     <div className="work-meta"><span>{work.title.toUpperCase()}</span><span>{String(index + 1).padStart(2, '0')}</span></div>
     <span className="work-cover" style={{ aspectRatio: videoRatio || `${work.width} / ${work.height}` }}>
-      {previous !== null && layer(previous, true)}
       {layer(current)}
       {work.slides.length > 1 && <span className="cover-count" aria-hidden="true">▱ {String(current + 1).padStart(2, '0')} / {String(work.slides.length).padStart(2, '0')}</span>}
     </span>

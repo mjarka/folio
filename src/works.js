@@ -22,5 +22,5 @@ export default orderedCatalog.map(category => ({
   src: imageUrl(category.cover.key),
   width: category.cover.width,
   height: category.cover.height,
-  slides: category.slides.map(slide => ({ ...slide, src: imageUrl(slide.key) })),
+  slides: category.slides.map(slide => ({ ...slide, src: imageUrl(slide.key), posterSrc: slide.posterKey ? imageUrl(slide.posterKey) : undefined })),
 }));

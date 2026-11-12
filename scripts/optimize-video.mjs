@@ -6,6 +6,13 @@ import ffmpeg from 'ffmpeg-static';
 import ffprobe from 'ffprobe-static';
 
 const run = promisify(execFile);
+export async function videoPoster(input, destination, force = false) {
+  try { if (!force && (await stat(destination)).mtimeMs >= (await stat(input)).mtimeMs) return; } catch {}
+  await run(ffmpeg, ['-hide_banner', '-loglevel', 'error', '-y', '-ss', '0.1', '-i', input,
+    '-frames:v', '1', '-vf', "scale=w='min(900,iw)':h='min(1200,ih)':force_original_aspect_ratio=decrease",
+    '-c:v', 'libwebp', '-quality', '85', '-threads', '2', destination], { windowsHide: true });
+}
+
 export async function inspectVideo(filename) {
   const { stdout } = await run(ffprobe.path, ['-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,codec_name,width,height,r_frame_rate', '-of', 'json', filename], { windowsHide: true });
   return JSON.parse(stdout);

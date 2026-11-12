@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import sharp from 'sharp';
 import { videoDimensions } from './video-dimensions.mjs';
-import { optimizeVideo } from './optimize-video.mjs';
+import { optimizeVideo, videoPoster } from './optimize-video.mjs';
 
 const root = fileURLToPath(new URL('../src/assets/prace/', import.meta.url));
 const output = fileURLToPath(new URL('../src/assets/prace-optimized/', import.meta.url));
@@ -38,10 +38,14 @@ for (const folder of folders) {
     try { outputTime = (await stat(destination)).mtimeMs; } catch {}
     if (isVideo) {
       await optimizeVideo(input, destination, force);
+      const posterName = generatedName.replace(/\.mp4$/, '.poster.webp');
+      const posterKey = `${folder}/${posterName}`;
+      generatedFiles.add(posterName);
+      await videoPoster(destination, path.join(output, posterKey), force);
       const dimensions = await videoDimensions(destination);
       const { width, height } = dimensions || { width: 1280, height: 720 };
-      slides.push({ key, title: title(file), filename: file, width, height, type: 'video' });
-      if (file === main) cover = { key, width, height, type: 'video' };
+      slides.push({ key, posterKey, title: title(file), filename: file, width, height, type: 'video' });
+      if (file === main) cover = { key, posterKey, width, height, type: 'video' };
       continue;
     }
     if (force || sourceTime > outputTime) {
@@ -71,7 +75,7 @@ for (const folder of folders) {
         title: title(slide.filename),
         category: folder,
         monochrome: false,
-        cover: { key: slide.key, width: slide.width, height: slide.height, type: slide.type },
+        cover: { key: slide.key, posterKey: slide.posterKey, width: slide.width, height: slide.height, type: slide.type },
         slides: [slide],
       });
     }

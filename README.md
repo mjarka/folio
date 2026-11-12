@@ -27,9 +27,9 @@ Podgląd kategorii obsługuje miniatury, strzałki, Escape i gest poziomy. Anima
 
 ## Rotacja okładek
 
-`src/RotatingArtwork.jsx` zmienia okładki losowo co 3,5–6 sekund. Pierwsza zmiana następuje po około 2–4 sekundach. Plik main jest pierwszym widokiem; kolejne materiały są wybierane bez bezpośrednich powtórzeń. Obraz dekodowany jest przed przejściem (650 ms), a proporcje kafelka pozostają stałe. Kliknięcie otwiera karuzelę od aktualnie prezentowanej pracy.
+`src/RotatingArtwork.jsx` zmienia okładki losowo co 3,5–6 sekund. Pierwsza zmiana następuje po około 2–4 sekundach. Plik main jest pierwszym widokiem; kolejne materiały są wybierane bez bezpośrednich powtórzeń. Obraz jest dekodowany przed natychmiastową podmianą, bez przenikania i animacji przejścia. Proporcje kafelka pozostają stałe. Kliknięcie otwiera karuzelę od aktualnie prezentowanej pracy.
 
-Rotacja zatrzymuje się przy fokusie, otwarciu karuzeli, ukryciu karty, wyjściu kafelka poza widoczny obszar oraz po użyciu przycisku AUTO. Najechanie jej nie zatrzymuje. `prefers-reduced-motion` wyłącza przenikanie, ale zdjęcia nadal się zmieniają. Oba podglądy filmów grają bez dźwięku w pętli, gdy są widoczne; zatrzymują się poza ekranem, w ukrytej karcie, zakładce O mnie, przy otwartej karuzeli oraz po wyłączeniu AUTO.
+Rotacja zatrzymuje się przy fokusie, otwarciu karuzeli, ukryciu karty, wyjściu kafelka poza widoczny obszar oraz po użyciu przycisku AUTO. Najechanie jej nie zatrzymuje. Zmiana zdjęć jest skokowa na wszystkich urządzeniach. Oba podglądy filmów grają bez dźwięku w pętli tylko przy `(min-width: 901px) and (hover: hover) and (pointer: fine)`, gdy są widoczne; zatrzymują się poza ekranem, w ukrytej karcie, zakładce O mnie, przy otwartej karuzeli oraz po wyłączeniu AUTO. Na telefonach i urządzeniach dotykowych kafelki używają statycznych posterów WebP zamiast elementów video; pełny film otwiera się po kliknięciu kafelka i jest odtwarzany ręcznie. Postery powstają automatycznie z klatki 0,1 s.
 
 ## Kompresja plików
 
