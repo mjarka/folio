@@ -143,6 +143,9 @@
 .computer-image-frame .vents { opacity: 0.38; }
 .computer-image-frame .power-knob { margin-left: 5px; background: linear-gradient(#c3b394, #968669); border-color: #8c7c61; box-shadow: 1px 2px 3px #4b3b2c99, inset 0 1px 1px #e4d7bd; }
 .computer-image-frame .power-knob[aria-pressed="true"] { color: #32482a; text-shadow: 0 0 5px #bce68c; }
+@media(max-width:900px) {
+  .monitor-stickers { display: none; }
+}
 @media(max-width:540px) {
   .computer-image-frame { --case-bottom: calc(var(--case-bottom-base) + 64px); }
   .contact-note { --note-offset-bottom: 30px; }
